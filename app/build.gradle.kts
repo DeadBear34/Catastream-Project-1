@@ -32,17 +32,26 @@ android {
 }
 
 dependencies {
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.gson)
-    implementation(libs.glide)
-    annotationProcessor(libs.glide.compiler)
+
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
-    implementation(libs.glide)
-    annotationProcessor(libs.glide.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+
+    //glide
+    implementation(libs.glide)
+    annotationProcessor(libs.glide.compiler)
+
+    // Room
+    implementation(libs.room.runtime)
+    annotationProcessor(libs.room.compiler)
+
+
 }
