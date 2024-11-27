@@ -36,7 +36,9 @@ public class MovieItemActivity extends RecyclerView.Adapter<MovieItemActivity.Mo
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
         Movie movie = movies.get(position);
         Glide.with(context).load(movie.getPosterUrl()).into(holder.poster);
+        holder.title.setText(movie.getTitle());
     }
+
 
     @Override
     public int getItemCount() {
@@ -44,12 +46,13 @@ public class MovieItemActivity extends RecyclerView.Adapter<MovieItemActivity.Mo
     }
 
     public static class MovieViewHolder extends RecyclerView.ViewHolder {
-        TextView title, overview;
+        TextView title;
         ImageView poster;
 
         public MovieViewHolder(@NonNull View itemView) {
             super(itemView);
             poster = itemView.findViewById(R.id.movie_poster);
+            title = itemView.findViewById(R.id.movie_title);
         }
     }
 }
