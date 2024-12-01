@@ -23,21 +23,16 @@ public class CatalogActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalog);
 
-        // Inisialisasi RecyclerView dan Adapter
         RecyclerView catalogRecyclerView = findViewById(R.id.catalog_recycler_view);
         catalogRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Adapter dengan listener untuk tombol delete
         catalogAdapter = new CatalogAdapter(new ArrayList<>(), wishList -> {
-            // Panggil ViewModel untuk menghapus data
             catalogViewModel.delete(wishList);
         });
         catalogRecyclerView.setAdapter(catalogAdapter);
 
-        // Inisialisasi ViewModel dan observer data
         catalogViewModel = new ViewModelProvider(this).get(CatalogViewModel.class);
 
-        // Observe LiveData untuk pembaruan data katalog
         catalogViewModel.getAllWishLists().observe(this, wishLists -> catalogAdapter.updateWishLists(wishLists));
     }
 }
