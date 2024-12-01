@@ -1,7 +1,9 @@
 package org.catastream.ui.activity.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +14,7 @@ import org.catastream.client.TmdbClientApi;
 import org.catastream.client.TmdbClientQuery;
 import org.catastream.model.Movie;
 import org.catastream.model.MovieList;
+import org.catastream.ui.activity.CatalogActivity;
 import org.catastream.ui.activity.MovieItemActivity;
 
 import java.util.List;
@@ -24,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView trendingRecyclerView;
     private RecyclerView popularRecyclerView;
-    private MovieItemActivity trendingAdapter;
-    private MovieItemActivity popularAdapter;
 
     private final String apiKey = "1fcbebcfe0bedc39903831c5a661389c";
     private int currentPage = 1;
@@ -35,7 +36,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Inisialisasi RecyclerView
+        ImageButton btnCatalog = findViewById(R.id.btn_catalog);
+        btnCatalog.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, CatalogActivity.class);
+            startActivity(intent);
+        });
+
         trendingRecyclerView = findViewById(R.id.recycler_view);
         trendingRecyclerView.setLayoutManager(
                 new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
@@ -44,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         popularRecyclerView.setLayoutManager(
                 new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
+        // Fetch data film
         fetchPopularMovies(currentPage, trendingRecyclerView);
         fetchPopularMovies(currentPage + 1, popularRecyclerView);
     }

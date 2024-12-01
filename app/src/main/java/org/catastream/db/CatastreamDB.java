@@ -1,30 +1,32 @@
 package org.catastream.db;
 
-import androidx.annotation.NonNull;
-import androidx.room.Database;
-import androidx.room.DatabaseConfiguration;
-import androidx.room.InvalidationTracker;
-import androidx.room.RoomDatabase;
-import androidx.sqlite.db.SupportSQLiteOpenHelper;
+import android.content.Context;
 
-import org.catastream.db.sqlLite.WishList;
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+
+import org.catastream.db.dao.WishListDao;
+import org.catastream.db.entity.WishList;
 
 @Database(entities = {WishList.class}, version = 1, exportSchema = false)
-public class CatastreamDB extends RoomDatabase {
-    @Override
-    public void clearAllTables() {
+public abstract class CatastreamDB extends RoomDatabase {
 
-    }
+    private static volatile CatastreamDB INSTANCE;
 
-    @NonNull
-    @Override
-    protected SupportSQLiteOpenHelper createOpenHelper(@NonNull DatabaseConfiguration databaseConfiguration) {
-        return null;
-    }
+    public abstract WishListDao wishListDao();
 
-    @NonNull
-    @Override
-    protected InvalidationTracker createInvalidationTracker() {
-        return null;
+    public static CatastreamDB getInstance(Context context) {
+        if (INSTANCE == null) {
+            synchronized (CatastreamDB.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                                    CatastreamDB.class, "catastream_database")
+                            .fallbackToDestructiveMigration()
+                            .build();
+                }
+            }
+        }
+        return INSTANCE;
     }
 }

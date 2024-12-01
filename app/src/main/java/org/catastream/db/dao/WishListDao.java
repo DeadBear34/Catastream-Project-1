@@ -1,27 +1,24 @@
 package org.catastream.db.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
-import androidx.room.Update;
 
-import org.catastream.db.sqlLite.WishList;
+import org.catastream.db.entity.WishList;
 
 import java.util.List;
 
 @Dao
 public interface WishListDao {
-
     @Insert
-    void InsertWishList(WishList wishList);
+    void insertWishList(WishList wishList);
 
     @Delete
-    void DeleteWishList(WishList wishList);
+    void deleteWishList(WishList wishList);
 
-    @Update
-    void UpdateWishList(WishList wishList);
-
-    @Query("Select * from WhistList")
-    List<WishList> getAllWishList();
+    @Query("SELECT * FROM WishList")
+    LiveData<List<WishList>> getAllWishLists();
 }

@@ -1,6 +1,7 @@
 package org.catastream.ui.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +38,16 @@ public class MovieItemActivity extends RecyclerView.Adapter<MovieItemActivity.Mo
         Movie movie = movies.get(position);
         Glide.with(context).load(movie.getPosterUrl()).into(holder.poster);
         holder.title.setText(movie.getTitle());
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, MovieDetailActivity.class);
+            intent.putExtra("title", movie.getTitle());
+            intent.putExtra("overview", movie.getOverview());
+            intent.putExtra("posterUrl", movie.getPosterUrl());
+            context.startActivity(intent);
+        });
     }
+
 
 
     @Override

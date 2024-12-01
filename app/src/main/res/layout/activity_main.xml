@@ -4,19 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/poster_homepage"
+    android:background="@color/black"
     tools:context=".ui.activity.main.MainActivity">
 
-    <View
-        android:id="@+id/static_spacer"
+    <!-- Gambar Latar Belakang -->
+    <ImageView
+        android:id="@+id/background_image"
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/poster_homepage"
+        android:contentDescription="@string/app_background" />
 
+    <!-- Konten Scroll -->
     <ScrollView
+        android:id="@+id/scroll_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/static_spacer"
+        android:layout_below="@id/background_image"
         android:fillViewport="true">
 
         <LinearLayout
@@ -25,11 +31,12 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+            <!-- Trending Movies -->
             <TextView
                 android:id="@+id/tv_trending_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Film Trending"
+                android:text="@string/trending_movies"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:padding="8dp"
@@ -39,17 +46,17 @@
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="16dp"
                 android:clipToPadding="false"
                 android:scrollbars="horizontal"
                 android:layout_marginBottom="16dp" />
 
+            <!-- Popular Movies -->
             <TextView
                 android:id="@+id/tv_popular_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Film Populer"
+                android:text="@string/popular_movies"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:padding="8dp"
@@ -59,10 +66,22 @@
                 android:id="@+id/rv_popular_movies"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="16dp"
                 android:clipToPadding="false"
                 android:scrollbars="horizontal"
                 android:layout_marginBottom="16dp" />
         </LinearLayout>
     </ScrollView>
+
+    <!-- Tombol Katalog -->
+    <ImageButton
+        android:id="@+id/btn_catalog"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_catalog"
+        android:contentDescription="@string/catalog_button"
+        android:scaleType="centerInside"/>
 </RelativeLayout>
