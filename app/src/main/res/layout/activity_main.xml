@@ -7,7 +7,6 @@
     android:background="@color/black"
     tools:context=".ui.activity.main.MainActivity">
 
-    <!-- Gambar Latar Belakang -->
     <ImageView
         android:id="@+id/background_image"
         android:layout_width="match_parent"
@@ -17,7 +16,6 @@
         android:src="@drawable/poster_homepage"
         android:contentDescription="@string/app_background" />
 
-    <!-- Konten Scroll -->
     <ScrollView
         android:id="@+id/scroll_container"
         android:layout_width="match_parent"
@@ -31,7 +29,6 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Trending Movies -->
             <TextView
                 android:id="@+id/tv_trending_title"
                 android:layout_width="match_parent"
@@ -50,7 +47,6 @@
                 android:scrollbars="horizontal"
                 android:layout_marginBottom="16dp" />
 
-            <!-- Popular Movies -->
             <TextView
                 android:id="@+id/tv_popular_title"
                 android:layout_width="match_parent"
@@ -71,8 +67,6 @@
                 android:layout_marginBottom="16dp" />
         </LinearLayout>
     </ScrollView>
-
-    <!-- Tombol Katalog -->
     <ImageButton
         android:id="@+id/btn_catalog"
         android:layout_width="56dp"

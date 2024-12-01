@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:background="@android:color/black">
 
-    <!-- Poster Image -->
     <ImageView
         android:id="@+id/movie_detail_poster"
         android:layout_width="match_parent"
@@ -13,7 +12,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp" />
 
-    <!-- Title -->
     <TextView
         android:id="@+id/movie_detail_title"
         android:layout_width="match_parent"
@@ -24,7 +22,6 @@
         android:textStyle="bold"
         android:text="@string/movie_title" />
 
-    <!-- Overview -->
     <TextView
         android:id="@+id/movie_detail_overview"
         android:layout_width="match_parent"
@@ -35,7 +32,6 @@
         android:textColor="@android:color/white"
         android:text="@string/movie_overview" />
 
-    <!-- Home Button -->
     <ImageButton
         android:id="@+id/btn_home"
         android:layout_width="48dp"
@@ -48,7 +44,6 @@
         android:scaleType="centerInside"
         android:src="@drawable/ic_home" />
 
-    <!-- Add to Catalog Button -->
     <ImageButton
         android:id="@+id/btn_add_to_catalog"
         android:layout_width="48dp"
