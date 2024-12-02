@@ -7,7 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import org.catastream.db.dao.WishListDao;
-import org.catastream.db.entity.WishList;
+import org.catastream.db.sqlLite.WishList;
 
 @Database(entities = {WishList.class}, version = 1, exportSchema = false)
 public abstract class CatastreamDB extends RoomDatabase {

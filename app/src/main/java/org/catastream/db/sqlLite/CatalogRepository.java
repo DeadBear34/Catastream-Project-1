@@ -1,4 +1,4 @@
-package org.catastream.repository;
+package org.catastream.db.sqlLite;
 
 import android.app.Application;
 
@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData;
 
 import org.catastream.db.CatastreamDB;
 import org.catastream.db.dao.WishListDao;
-import org.catastream.db.entity.WishList;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;

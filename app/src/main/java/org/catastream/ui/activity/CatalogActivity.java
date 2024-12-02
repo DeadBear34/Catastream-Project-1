@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.catastream.R;
-import org.catastream.db.entity.WishList;
 import org.catastream.model.CatalogViewModel;
 
 import java.util.ArrayList;

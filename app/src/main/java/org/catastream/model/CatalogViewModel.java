@@ -5,8 +5,9 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import org.catastream.db.entity.WishList;
-import org.catastream.repository.CatalogRepository;
+
+import org.catastream.db.sqlLite.CatalogRepository;
+import org.catastream.db.sqlLite.WishList;
 
 import java.util.List;
 /* Jdi class ini tuh buat nampung operasi untuk di class catalog

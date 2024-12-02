@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import org.catastream.R;
-import org.catastream.db.entity.WishList;
+import org.catastream.db.sqlLite.WishList;
 
 import java.util.List;
 

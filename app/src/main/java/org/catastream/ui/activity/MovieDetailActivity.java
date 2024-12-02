@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.bumptech.glide.Glide;
 
 import org.catastream.R;
-import org.catastream.db.entity.WishList;
+import org.catastream.db.sqlLite.WishList;
 import org.catastream.model.MovieDetailViewModel;
 import org.catastream.ui.activity.main.MainActivity;
 

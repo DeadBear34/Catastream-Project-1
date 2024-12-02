@@ -1,4 +1,4 @@
-package org.catastream.db.entity;
+package org.catastream.db.sqlLite;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
